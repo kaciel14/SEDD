@@ -1,0 +1,57 @@
+﻿<Page x:Class="SEDD.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:SEDD.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="733" d:DesignWidth="1346"
+      Title="Page2" >
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:CustomColorTheme BaseTheme="Light" PrimaryColor="#1B396A" SecondaryColor="DarkGreen" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Height="733" Width="1346" Background="White">
+        <Button x:Name="LoginBtn" Content="Entrar" HorizontalAlignment="Left" Margin="1050,450,0,0" VerticalAlignment="Top" Width="94" Height="38" 
+                Click="LoginBtn_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="38" Margin="1030,260,0,0" TextWrapping ="Wrap" Text="" VerticalAlignment="Top" Width="150" 
+                 materialDesign:HintAssist.Hint="RFC" x:Name="campoRFC"  FontSize="18"/>
+        <Label Content="¡Bienvenido!" HorizontalAlignment="Left" Margin="1000,180,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="1030,340,0,0" VerticalAlignment="Top" Width="150" Height="38" 
+                     materialDesign:HintAssist.Hint="Número de ficha" x:Name="campoPass" FontSize="18"/>
+        <Label x:Name="badLogin" Content="El usuario o la contraseña no coincide." HorizontalAlignment="Left" Margin="977,388,0,0" 
+               VerticalAlignment="Top" Width="246" FontWeight="Bold" Foreground="#DDFF0808" Visibility="Hidden"/>
+
+
+        <Rectangle Fill="#1B396A" HorizontalAlignment="Left" Height="733" Stroke="Black" VerticalAlignment="Top" Width="860"/>
+        <Label Content="SISTEMA DE DOCUMENTOS" HorizontalAlignment="Left" Margin="128,104,0,0" VerticalAlignment="Top" Foreground="White"
+               FontWeight="Bold" FontSize="46"/>
+        <Label Content="DESEMPEÑO DEL PERSONAL" HorizontalAlignment="Left" Margin="107,206,0,0" VerticalAlignment="Top" Foreground="White"
+               FontWeight="Bold" FontSize="46"/>
+        <Label Content="DOCENTE " HorizontalAlignment="Left" Margin="312,286,0,0" VerticalAlignment="Top" Foreground="White" 
+               FontWeight="Bold" FontSize="46"/>
+
+        <Image HorizontalAlignment="Left" Height="160" Margin="575,460,0,0" VerticalAlignment="Top" Width="185" Source="/SEDD;component/Imagenes/logo-itcm-v2.png"/>
+        
+        <Image HorizontalAlignment="Left" Height="180" Margin="132,450,0,0" VerticalAlignment="Top" Width="460" Source="/SEDD;component/Imagenes/tecNM_logo.jpg" 
+               RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.507"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Frame x:Name="MFrame" NavigationUIVisibility="Hidden"/>
+    </Grid>
+
+</Page>

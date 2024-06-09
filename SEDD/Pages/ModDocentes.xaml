@@ -1,0 +1,64 @@
+﻿<Page x:Class="SEDD.Pages.ModDocentes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:SEDD.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="733" d:DesignWidth="1346"
+      Title="ModDocentes">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:CustomColorTheme BaseTheme="Light" PrimaryColor="#1B396A" SecondaryColor="DarkGreen" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="White" Name="grid" Height="733" Width="1346">
+        <Rectangle Fill="#1B396A" HorizontalAlignment="Center" Height="45" Stroke="Black" VerticalAlignment="Top" Width="800" Name="rect"/>
+        <Label x:Name="departamentoLabel" Content="" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top"/>
+        <Button Content="Atrás" HorizontalAlignment="Left" Margin="50,60,0,0" VerticalAlignment="Top" Width="134" Click="Back_Click" Background="#6F7271" BorderBrush="#6F7271"/>
+        <Button Content="Cerrar sesión" HorizontalAlignment="Left" Margin="1179,60,0,0" VerticalAlignment="Top" Width="134" Click="LogOutBtn" Background="#6F7271" BorderBrush="#6F7271"/>
+
+
+        <Label HorizontalAlignment="Center" Margin="416,116,34,0" Content="ADMINISTRAR DOCENTES" VerticalAlignment="Top" Height="70" Width="896" FontFamily="Montserrat" FontSize="34" Foreground="#1B396A" FontWeight="Bold"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="148,165,0,0" Stroke="Black" VerticalAlignment="Top" Width="1007"/>
+
+
+
+        <Image HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="102" Margin="1179,0,0,0" Source="/SEDD;component/Imagenes/tecNM_logo.jpg" />
+        <Image HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="50" Margin="1286,0,0,0" Source="/SEDD;component/Imagenes/logo-itcm-v2.png"/>
+        <DataGrid x:Name="table" HorizontalAlignment="Left" Height="374" Margin="348,261,0,0" VerticalAlignment="Top" Width="948" IsReadOnly="True" CurrentCellChanged="select">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#1B396A" />
+                    <Setter Property="Foreground" Value="White" />
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+
+        <TextBox x:Name="rfcBox" HorizontalAlignment="Left" Height="24" Margin="64,299,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" materialDesign:HintAssist.HelperText="RFC"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="24" Margin="64,349,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" materialDesign:HintAssist.HelperText="NOMBRE"/>
+        <TextBox x:Name="numFicBox" HorizontalAlignment="Left" Height="24" Margin="64,399,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" materialDesign:HintAssist.HelperText="NUMERO DE FICHA"/>
+        <TextBox x:Name="depBox" HorizontalAlignment="Left" Height="24" Margin="64,449,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" materialDesign:HintAssist.HelperText="DEPARTAMENTO"/>
+        <TextBox x:Name="emailBox" HorizontalAlignment="Left" Height="24" Margin="64,499,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" materialDesign:HintAssist.HelperText="CORREO"/>
+        <ComboBox x:Name="roleChooser" HorizontalAlignment="Left" Margin="64,549,0,0" VerticalAlignment="Top" Width="120" materialDesign:HintAssist.HelperText="ROL">
+            <ComboBoxItem x:Name="Docente">Docente</ComboBoxItem>
+            <ComboBoxItem x:Name="Revisor">Revisor</ComboBoxItem>
+        </ComboBox>
+        <Button x:Name="updateBtn" Content="Actualizar" HorizontalAlignment="Left" Margin="126,613,0,0" VerticalAlignment="Top" Width="100" Click="actualiza"/>
+        <Button x:Name="addBtn" Content="+" HorizontalAlignment="Left" Margin="151,658,0,0" VerticalAlignment="Top" Width="50" Click="addDocente"/>
+        <Button x:Name="add2Btn" Content="Agregar" HorizontalAlignment="Left" Margin="206,656,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden" IsEnabled="False" Click="nuevoDocente"/>
+        <Button x:Name="cancelBtn" Content="Cancelar" HorizontalAlignment="Left" Margin="50,656,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden" IsEnabled="False" Click="CancelBtn"/>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="440" Margin="32,261,0,0" VerticalAlignment="Top" Width="290"/>
+
+        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="762,669,0,0" VerticalAlignment="Top" Width="100" Click="eliminarDocente" />
+        <Frame x:Name="MFrame" NavigationUIVisibility="Hidden"/>
+        
+    </Grid>
+</Page>
